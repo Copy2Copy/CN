@@ -1,0 +1,40 @@
+//djikstra
+def dijkstra(graph, start):
+    # Step 1: Initialize distances
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    
+    # Step 2: Mark all nodes as unvisited
+    unvisited = set(graph)
+    while unvisited:
+        # Step 5: Select the unvisited node with the smallest distance
+        current_node = min(unvisited, key=distances.get)
+        # Step 4: Mark current node as visited
+        unvisited.remove(current_node)
+        
+        # Step 3: Calculate tentative distances for neighbors
+        for neighbor, weight in graph[current_node].items():
+            distance = distances[current_node] + weight
+            # Update the distance if it is less than the previously recorded distance
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+    
+    return distances
+
+
+# Example graph
+graph = {
+    'A': {'B': 5, 'C': 3},
+    'B': {'A': 5, 'D': 2},
+    'C': {'A': 3, 'D': 4, 'E': 6},
+    'D': {'B': 2, 'C': 4, 'E': 1},
+    'E': {'C': 6, 'D': 1}
+}
+
+# Find shortest distances from node 'A'
+# distances = dijkstra(graph,'A')
+for i in graph:
+    distances = dijkstra(graph, i)
+
+# Print the shortest distances
+    print(distances)  # {'A': 0, 'B': 5, 'C': 3, 'D': 7, 'E': 8}
