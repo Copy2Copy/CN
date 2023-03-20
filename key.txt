@@ -1,3 +1,5 @@
+note: add sk- in the starting for valid key.
+
 21pc13 - ir03zcgGgr9UkFYiwGxvT3BlbkFJLag01jLVoe6Ou8rmNURP
 
 21pc19 - OTaSzNANFaH4Zmuvq0ZnT3BlbkFJY4mcSLWyAPW3eL2ncMnP
